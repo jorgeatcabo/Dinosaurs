@@ -1,10 +1,67 @@
-   
+import Dinos from './dino.json' assert {type: 'json'};
+console.log(Dinos)
 
     // Create Dino Constructor
+    const Dino = () => {
 
+        let species = "";
+        let weight = 0;
+        let height = 0;
+        let diet = "";
+        let where = "";
+        let when = "";
+        let fact = "";
 
-    // Create Dino Objects
+        return {
 
+            getSpecies: function () {
+                return species;
+            },
+            getWeight: function () {
+                return weight;
+            },
+            getHeight: function () {
+                return height;
+            },
+            getDiet: function () {
+                return diet;
+            },
+            getWhere: function () {
+                return where;
+            },
+            getWhen: function () {
+                return when;
+            },
+            getFact: function () {
+                return fact;
+            },
+            setSpecies: function (newValue) {
+                species = newValue;
+            },
+            setWeight: function (newValue) {
+                weight = newValue;
+            },
+            setHeight: function (newValue) {
+                height = newValue;
+            },
+            setDiet: function (newValue) {
+                diet = newValue;
+            },
+            setWhere: function (newValue) {
+                where = newValue;
+            },
+            setWhen: function (newValue) {
+                when = newValue;
+            },
+            setFact: function (newValue) {
+                fact = newValue;
+            },
+
+        }
+
+    }
+
+// Create Dino Objects
 
     // Create Human Object
 

@@ -2,9 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\dist",
-    "\\images",
     "\\src"
   ],
-  "SelectedNode": "\\images\\anklyosaurus.png",
+  "SelectedNode": "\\dist\\index.html",
   "PreviewInSolutionExplorer": false
 }

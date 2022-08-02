@@ -1,3 +1,3 @@
-import './app.js'
-import './app.css'
+import './app.js';
+import './app.css';
 
