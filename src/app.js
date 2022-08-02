@@ -1,17 +1,4 @@
-    //Hide form
-    const submitBtn = document.getElementById("btn");
-
-    function submit() {
-        var x = document.getElementById("dino-compare");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-    }
-
-    submitBtn.onclick = submit;
-
+   
 
     // Create Dino Constructor
 
@@ -45,11 +32,24 @@
 
 // On button click, prepare and display infographic
 
-//function helloWorld() {
-//    alert('Hello, world!');
-//}
+//Hide form
+const submitBtn = document.getElementById("btn");
 
-//module.exports = {
-//    helloWord: helloWorld,
-//};
-/*export { myFunction };*/
+const submit = () => {
+    var grid = document.getElementById("grid");
+    for (let i = 1; i <= 9; i++) {
+        let div = document.createElement('div')
+        grid.appendChild(div)
+        div.textContent = i
+        div.classList.add("grid-item");
+    }
+    var x = document.getElementById("dino-compare");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+submitBtn.onclick = submit;
+
