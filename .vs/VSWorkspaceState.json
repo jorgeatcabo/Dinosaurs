@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\dist",
+    "\\images",
+    "\\src"
   ],
+  "SelectedNode": "\\images\\anklyosaurus.png",
   "PreviewInSolutionExplorer": false
 }
