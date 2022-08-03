@@ -1,4 +1,5 @@
 import Dinos from './dino.json' assert {type: 'json'};
+
 const dinos = [...Dinos.Dinos]
 
 // Create Dino Constructor
@@ -11,6 +12,7 @@ const Dino = () => {
     let where = "";
     let when = "";
     let fact = "";
+    let image = "";
 
     return {
         getSpecies: function () {
@@ -34,6 +36,9 @@ const Dino = () => {
         getFact: function () {
             return fact;
         },
+        getImage: function () {
+            return image;
+        },
         setSpecies: function (newValue) {
             species = newValue;
         },
@@ -55,6 +60,9 @@ const Dino = () => {
         setFact: function (newValue) {
             fact = newValue;
         },
+        setImage: function (newValue) {
+            image = newValue;
+        },
     }
 
 }
@@ -72,6 +80,7 @@ dinos.forEach((element) => {
     dino.setWhere(element.where);
     dino.setWhen(element.when);
     dino.setFact(element.fact);
+    dino.setImage(element.image);
     dinosObjects.push(dino)
 
 })
@@ -99,10 +108,13 @@ humanObject.setSpecies("Human")
 
 shuffleDinosObjects.splice(4, 0, humanObject)
 
-//shuffleDinosObjects.forEach((dino) => {
-//    console.log(dino.getSpecies())
-//    //console.log(dino.getDiet())
-//    //console.log(dino.getHeight())
+/*console.log(shuffleDinosObjects)*/
+
+
+//shuffleDinosObjects.foreach((dino) => {
+//    console.log(dino.getImage())
+//    //console.log(dino.getdiet())
+//    //console.log(dino.getheight())
 
 //})
 
@@ -138,12 +150,30 @@ shuffleDinosObjects.splice(4, 0, humanObject)
 const submitBtn = document.getElementById("btn");
 
 const submit = () => {
+
     var grid = document.getElementById("grid");
-    for (let i = 0; i <= shuffleDinosObjects.length-1; i++) {
-        let div = document.createElement('div')
-        grid.appendChild(div)
-        div.textContent = shuffleDinosObjects[i].getSpecies()
+
+    for (let i = 0; i <= shuffleDinosObjects.length - 1; i++) {
+
+        let div = document.createElement('div');
+        let h3 = document.createElement('h3');
+        let p = document.createElement('p');
+        let img = document.createElement('img');
+
+        grid.appendChild(div);
+        div.appendChild(h3);
+        div.appendChild(img);
+        div.appendChild(p);
+        
+        h3.textContent = shuffleDinosObjects[i].getSpecies()
+        console.log(shuffleDinosObjects[i].getImage())
+        img.src = `./images/${shuffleDinosObjects[i].getImage()}`
+        p.textContent = shuffleDinosObjects[i].getFact()
+
         div.classList.add("grid-item");
+        //h3.classList.add("grid-item");
+        //p.classList.add("grid-item");
+        /*div.classList.add("grid-item");*/
     }
     var x = document.getElementById("dino-compare");
     if (x.style.display === "none") {

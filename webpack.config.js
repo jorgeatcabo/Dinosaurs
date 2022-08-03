@@ -20,6 +20,24 @@ module.exports = {
                     'css-loader',
                 ],
             },
+            {
+                test: /\.(gif|png|avif|jpe?g)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'images/'
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.html$/,
+                use: [
+                    'html-loader'
+                ]
+            },
         ],
     },
 };
