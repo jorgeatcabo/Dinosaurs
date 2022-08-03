@@ -77,6 +77,7 @@ dinos.forEach((element) => {
 })
 
 
+
 //Method for shuffling array of objects
 const shuffle = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -92,12 +93,18 @@ const shuffle = (array) => {
 
 let shuffleDinosObjects = shuffle(dinosObjects)
 
-shuffleDinosObjects.forEach((dino) => {
-    console.log(dino.getSpecies())
-    console.log(dino.getDiet())
-    console.log(dino.getHeight())
+let humanObject = Dino();
 
-})
+humanObject.setSpecies("Human")
+
+shuffleDinosObjects.splice(4, 0, humanObject)
+
+//shuffleDinosObjects.forEach((dino) => {
+//    console.log(dino.getSpecies())
+//    //console.log(dino.getDiet())
+//    //console.log(dino.getHeight())
+
+//})
 
 
 
@@ -132,10 +139,10 @@ const submitBtn = document.getElementById("btn");
 
 const submit = () => {
     var grid = document.getElementById("grid");
-    for (let i = 1; i <= 9; i++) {
+    for (let i = 0; i <= shuffleDinosObjects.length-1; i++) {
         let div = document.createElement('div')
         grid.appendChild(div)
-        div.textContent = i
+        div.textContent = shuffleDinosObjects[i].getSpecies()
         div.classList.add("grid-item");
     }
     var x = document.getElementById("dino-compare");
