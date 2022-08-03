@@ -1,67 +1,105 @@
 import Dinos from './dino.json' assert {type: 'json'};
-console.log(Dinos)
+const dinos = [...Dinos.Dinos]
 
-    // Create Dino Constructor
-    const Dino = () => {
+// Create Dino Constructor
+const Dino = () => {
 
-        let species = "";
-        let weight = 0;
-        let height = 0;
-        let diet = "";
-        let where = "";
-        let when = "";
-        let fact = "";
+    let species = "";
+    let weight = 0;
+    let height = 0;
+    let diet = "";
+    let where = "";
+    let when = "";
+    let fact = "";
 
-        return {
-
-            getSpecies: function () {
-                return species;
-            },
-            getWeight: function () {
-                return weight;
-            },
-            getHeight: function () {
-                return height;
-            },
-            getDiet: function () {
-                return diet;
-            },
-            getWhere: function () {
-                return where;
-            },
-            getWhen: function () {
-                return when;
-            },
-            getFact: function () {
-                return fact;
-            },
-            setSpecies: function (newValue) {
-                species = newValue;
-            },
-            setWeight: function (newValue) {
-                weight = newValue;
-            },
-            setHeight: function (newValue) {
-                height = newValue;
-            },
-            setDiet: function (newValue) {
-                diet = newValue;
-            },
-            setWhere: function (newValue) {
-                where = newValue;
-            },
-            setWhen: function (newValue) {
-                when = newValue;
-            },
-            setFact: function (newValue) {
-                fact = newValue;
-            },
-
-        }
-
+    return {
+        getSpecies: function () {
+            return species;
+        },
+        getWeight: function () {
+            return weight;
+        },
+        getHeight: function () {
+            return height;
+        },
+        getDiet: function () {
+            return diet;
+        },
+        getWhere: function () {
+            return where;
+        },
+        getWhen: function () {
+            return when;
+        },
+        getFact: function () {
+            return fact;
+        },
+        setSpecies: function (newValue) {
+            species = newValue;
+        },
+        setWeight: function (newValue) {
+            weight = newValue;
+        },
+        setHeight: function (newValue) {
+            height = newValue;
+        },
+        setDiet: function (newValue) {
+            diet = newValue;
+        },
+        setWhere: function (newValue) {
+            where = newValue;
+        },
+        setWhen: function (newValue) {
+            when = newValue;
+        },
+        setFact: function (newValue) {
+            fact = newValue;
+        },
     }
 
+}
+
+var dinosObjects = []
+
 // Create Dino Objects
+dinos.forEach((element) => {
+
+    let dino = Dino();
+    dino.setSpecies(element.species);
+    dino.setWeight(element.weight);
+    dino.setHeight(element.height);
+    dino.setDiet(element.diet);
+    dino.setWhere(element.where);
+    dino.setWhen(element.when);
+    dino.setFact(element.fact);
+    dinosObjects.push(dino)
+
+})
+
+
+//Method for shuffling array of objects
+const shuffle = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = array[i];
+
+        // Swap
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+};
+
+let shuffleDinosObjects = shuffle(dinosObjects)
+
+shuffleDinosObjects.forEach((dino) => {
+    console.log(dino.getSpecies())
+    console.log(dino.getDiet())
+    console.log(dino.getHeight())
+
+})
+
+
 
     // Create Human Object
 
