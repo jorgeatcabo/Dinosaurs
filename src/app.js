@@ -1,6 +1,8 @@
 import Dinos from './dino.json' assert {type: 'json'};
+import Humans from './dino.json' assert {type: 'json'};
 
 const dinos = [...Dinos.Dinos]
+const human = [...Dinos.Humans]
 
 // Create Dino Constructor
 const Dino = () => {
@@ -102,11 +104,6 @@ const shuffle = (array) => {
 
 let shuffleDinosObjects = shuffle(dinosObjects)
 
-let humanObject = Dino();
-
-humanObject.setSpecies("Human")
-
-shuffleDinosObjects.splice(4, 0, humanObject)
 
 /*console.log(shuffleDinosObjects)*/
 
@@ -119,11 +116,84 @@ shuffleDinosObjects.splice(4, 0, humanObject)
 //})
 
 
+//Human constructor
+const Human = () => {
 
-    // Create Human Object
+    let species = "";
+    let name = "";
+    let height = {
+        feet: 0,
+        inches: 0
+    };
+    let weight = 0;
+    let diet = "";
+    let fact = "";
+    let image = "";
 
-    // Use IIFE to get human data from form
+    return {
+        getSpecies: function () {
+            return species;
+        },
+        getName: function () {
+            return name;
+        },
+        getWeight: function () {
+            return weight;
+        },
+        getHeight: function () {
+            return height;
+        },
+        getDiet: function () {
+            return diet;
+        },
+        getImage: function () {
+            return image;
+        },
+        setSpecies: function (newValue) {
+            species = newValue;
+        },
+        setName: function (newValue) {
+            name = newValue;
+        },
+        setWeight: function (newValue) {
+            weight = newValue;
+        },
+        setHeight: function (newFeet,newInches) {
+            height.feet = newFeet;
+            height.inches = newInches;
+        },
+        setDiet: function (newValue) {
+            diet = newValue;
+        },
+        getFact: function () {
+            return fact;
+        },
+        setImage: function (newValue) {
+            image = newValue;
+        },
+    }
 
+}
+
+// Create Human Object
+
+let humanObject = Human();
+
+
+
+
+
+// Use IIFE to get human data from form
+
+humanObject.setSpecies("Jorge");
+humanObject.setWeight(130);
+humanObject.setHeight(5, 8);
+humanObject.setDiet("");
+humanObject.setImage("human.png");
+
+
+//Add human object at the 5th position
+shuffleDinosObjects.splice(4, 0, humanObject)
 
     // Create Dino Compare Method 1
     // NOTE: Weight in JSON file is in lbs, height in inches.
@@ -166,14 +236,10 @@ const submit = () => {
         div.appendChild(p);
         
         h3.textContent = shuffleDinosObjects[i].getSpecies()
-        console.log(shuffleDinosObjects[i].getImage())
         img.src = `./images/${shuffleDinosObjects[i].getImage()}`
         p.textContent = shuffleDinosObjects[i].getFact()
 
         div.classList.add("grid-item");
-        //h3.classList.add("grid-item");
-        //p.classList.add("grid-item");
-        /*div.classList.add("grid-item");*/
     }
     var x = document.getElementById("dino-compare");
     if (x.style.display === "none") {
