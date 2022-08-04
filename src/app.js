@@ -168,9 +168,11 @@ const compareHeight = (dinoObject, humanObject) => {
     if (dinoObject.getHeight() > humanInches) {
         console.log(`Dino is taller than Human`)
     }
+
     if (dinoObject.getHeight() < humanInches) {
         console.log(`Dino is less tall than Human`)
     }
+
     if (dinoObject.getHeight() === humanInches) {
         console.log(`Dino is as tall as Human`)
     }
@@ -180,7 +182,21 @@ const compareHeight = (dinoObject, humanObject) => {
 
 // Create Dino Compare Method 2
 // NOTE: Weight in JSON file is in lbs, height in inches.
+const compareWeight = (dinoObject, humanObject) => {
 
+    if (dinoObject.getWeight() > humanObject.getWeight()) {
+        console.log(`Dino is more heavy than Human`)
+    }
+
+    if (dinoObject.getWeight() < humanObject.getWeight()) {
+        console.log(`Dino is less heavy than Human`)
+    }
+
+    if (dinoObject.getWeight() === humanObject.getWeight()) {
+        console.log(`Dino is as heavy as Human`)
+    }
+
+}
 
 // Create Dino Compare Method 3
 // NOTE: Weight in JSON file is in lbs, height in inches.
@@ -208,7 +224,7 @@ const submit = () => {
 
     var grid = document.getElementById("grid");
 
-    compareHeight(shuffleDinosObjects[0], humanObject)
+    compareWeight(shuffleDinosObjects[0], humanObject)
  
     for (let i = 0; i <= shuffleDinosObjects.length - 1; i++) {
 
