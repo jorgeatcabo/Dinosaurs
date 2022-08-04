@@ -80,19 +80,5 @@
       "fact": "All birds are living dinosaurs.",
       "image": "pigeon.png"
     }
-  ],
-  "Humans": [
-    {
-      "species": "",
-      "name": "",
-      "height": {
-        "feet": 0,
-        "inches": 0
-      },
-      "weight": 0,
-      "diet": "",
-      "fact": "",
-      "image": "human.png"
-    }
   ]
 }

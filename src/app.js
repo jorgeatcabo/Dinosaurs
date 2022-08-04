@@ -2,7 +2,6 @@ import Dinos from './dino.json' assert {type: 'json'};
 import Humans from './dino.json' assert {type: 'json'};
 
 const dinos = [...Dinos.Dinos]
-const human = [...Dinos.Humans]
 
 // Create Dino Constructor
 const Dino = () => {
@@ -104,18 +103,6 @@ const shuffle = (array) => {
 
 let shuffleDinosObjects = shuffle(dinosObjects)
 
-
-/*console.log(shuffleDinosObjects)*/
-
-
-//shuffleDinosObjects.foreach((dino) => {
-//    console.log(dino.getImage())
-//    //console.log(dino.getdiet())
-//    //console.log(dino.getheight())
-
-//})
-
-
 //Human constructor
 const Human = () => {
 
@@ -127,7 +114,6 @@ const Human = () => {
     };
     let weight = 0;
     let diet = "";
-    let fact = "";
     let image = "";
 
     return {
@@ -165,9 +151,6 @@ const Human = () => {
         setDiet: function (newValue) {
             diet = newValue;
         },
-        getFact: function () {
-            return fact;
-        },
         setImage: function (newValue) {
             image = newValue;
         },
@@ -176,53 +159,43 @@ const Human = () => {
 }
 
 // Create Human Object
+var humanObject = Human();
 
-let humanObject = Human();
-
-
-
-
-
-// Use IIFE to get human data from form
-
-humanObject.setSpecies("Jorge");
-humanObject.setWeight(130);
-humanObject.setHeight(5, 8);
-humanObject.setDiet("");
-humanObject.setImage("human.png");
+// Create Dino Compare Method 1
+// NOTE: Weight in JSON file is in lbs, height in inches.
 
 
-//Add human object at the 5th position
-shuffleDinosObjects.splice(4, 0, humanObject)
-
-    // Create Dino Compare Method 1
-    // NOTE: Weight in JSON file is in lbs, height in inches.
+// Create Dino Compare Method 2
+// NOTE: Weight in JSON file is in lbs, height in inches.
 
 
-    // Create Dino Compare Method 2
-    // NOTE: Weight in JSON file is in lbs, height in inches.
-
-
-    // Create Dino Compare Method 3
-    // NOTE: Weight in JSON file is in lbs, height in inches.
-
-
-    // Generate Tiles for each Dino in Array
-
-        // Add tiles to DOM
-
-    // Remove form from screen
+// Create Dino Compare Method 3
+// NOTE: Weight in JSON file is in lbs, height in inches.
 
 
 // On button click, prepare and display infographic
-
-//Hide form
 const submitBtn = document.getElementById("btn");
 
 const submit = () => {
 
+// Use IIFE to get human data from form
+    (function getFormValues() {
+
+        humanObject.setSpecies("Human");
+        humanObject.setName(document.getElementById("name").value);
+        humanObject.setWeight(document.getElementById("weight").value);
+        humanObject.setHeight(document.getElementById("feet").value, document.getElementById("inches").value);
+        humanObject.setDiet(document.getElementById("diet").value);
+        humanObject.setImage("human.png");
+
+    })();
+
+ // Generate Tiles for each Dino in Array
+    shuffleDinosObjects.splice(4, 0, humanObject)
+
     var grid = document.getElementById("grid");
 
+ // Add tiles to DOM
     for (let i = 0; i <= shuffleDinosObjects.length - 1; i++) {
 
         let div = document.createElement('div');
@@ -234,13 +207,21 @@ const submit = () => {
         div.appendChild(h3);
         div.appendChild(img);
         div.appendChild(p);
-        
-        h3.textContent = shuffleDinosObjects[i].getSpecies()
+
+        if (shuffleDinosObjects[i].getSpecies() !== "Human") {
+            h3.textContent = shuffleDinosObjects[i].getSpecies()
+            p.textContent = shuffleDinosObjects[i].getFact()
+        }
+        else {
+            h3.textContent = shuffleDinosObjects[i].getName()
+        }
+
         img.src = `./images/${shuffleDinosObjects[i].getImage()}`
-        p.textContent = shuffleDinosObjects[i].getFact()
 
         div.classList.add("grid-item");
     }
+
+ // Remove form from screen
     var x = document.getElementById("dino-compare");
     if (x.style.display === "none") {
         x.style.display = "block";
