@@ -1,5 +1,4 @@
 import Dinos from './dino.json' assert {type: 'json'};
-import Humans from './dino.json' assert {type: 'json'};
 
 const dinos = [...Dinos.Dinos]
 
@@ -86,8 +85,6 @@ dinos.forEach((element) => {
 
 })
 
-
-
 //Method for shuffling array of objects
 const shuffle = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -163,6 +160,22 @@ var humanObject = Human();
 
 // Create Dino Compare Method 1
 // NOTE: Weight in JSON file is in lbs, height in inches.
+const compareHeight = (dinoObject, humanObject) => {
+
+    const humanHeight = humanObject.getHeight();
+    const humanInches = (humanHeight.feet * 12) + (humanHeight.inches)
+
+    if (dinoObject.getHeight() > humanInches) {
+        console.log(`Dino is taller than Human`)
+    }
+    if (dinoObject.getHeight() < humanInches) {
+        console.log(`Dino is less tall than Human`)
+    }
+    if (dinoObject.getHeight() === humanInches) {
+        console.log(`Dino is as tall as Human`)
+    }
+
+}
 
 
 // Create Dino Compare Method 2
@@ -183,26 +196,29 @@ const submit = () => {
 
         humanObject.setSpecies("Human");
         humanObject.setName(document.getElementById("name").value);
-        humanObject.setWeight(document.getElementById("weight").value);
-        humanObject.setHeight(document.getElementById("feet").value, document.getElementById("inches").value);
+        humanObject.setWeight(parseInt(document.getElementById("weight").value));
+        humanObject.setHeight(parseInt(document.getElementById("feet").value), parseInt(document.getElementById("inches").value));
         humanObject.setDiet(document.getElementById("diet").value);
         humanObject.setImage("human.png");
 
     })();
 
- // Generate Tiles for each Dino in Array
+//Add human object to the fifth place
     shuffleDinosObjects.splice(4, 0, humanObject)
 
     var grid = document.getElementById("grid");
 
- // Add tiles to DOM
+    compareHeight(shuffleDinosObjects[0], humanObject)
+ 
     for (let i = 0; i <= shuffleDinosObjects.length - 1; i++) {
 
+ // Generate Tiles for each Dino in Array
         let div = document.createElement('div');
         let h3 = document.createElement('h3');
         let p = document.createElement('p');
         let img = document.createElement('img');
 
+// Add tiles to DOM
         grid.appendChild(div);
         div.appendChild(h3);
         div.appendChild(img);
