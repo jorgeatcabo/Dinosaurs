@@ -204,8 +204,6 @@ const compareWeight = (dinoObject, humanObject) => {
 // NOTE: Weight in JSON file is in lbs, height in inches.
 const compareDiet = (dinoObject, humanObject) => {
 
-    console.log(dinoObject.getDiet())
-
     if ((dinoObject.getDiet()==='herbavor') && (dinoObject.getDiet()).toUpperCase() === (humanObject.getDiet()).toUpperCase()) {
         console.log(`Dino and Human likes only vegetables`)
     }
@@ -234,8 +232,6 @@ const submit = () => {
         alert("Please enter your name.");
         return;
     }
-
-    console.log(parseInt(document.getElementById("weight").value))
 
     if (parseInt(document.getElementById("weight").value) <= 0 || (isNaN(parseInt(document.getElementById("weight").value)))) {
         alert("Please enter your weight.");
