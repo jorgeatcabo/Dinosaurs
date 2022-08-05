@@ -200,7 +200,24 @@ const compareWeight = (dinoObject, humanObject) => {
 
 // Create Dino Compare Method 3
 // NOTE: Weight in JSON file is in lbs, height in inches.
+const compareDiet = (dinoObject, humanObject) => {
 
+    console.log(dinoObject.getDiet())
+
+    if ((dinoObject.getDiet()==='herbavor') && (dinoObject.getDiet()).toUpperCase() === (humanObject.getDiet()).toUpperCase()) {
+        console.log(`Dino and Human likes only vegetables`)
+    }
+
+    if ((dinoObject.getDiet() === 'carnivor') && (dinoObject.getDiet()).toUpperCase() === (humanObject.getDiet()).toUpperCase()) {
+        console.log(`Dino and Human likes only meat`)
+    }
+
+    if ((dinoObject.getDiet() === 'omnivor') && (dinoObject.getDiet()).toUpperCase() === (humanObject.getDiet()).toUpperCase()) {
+        console.log(`Dino and Human likes hamburgers`)
+    }
+
+
+}
 
 // On button click, prepare and display infographic
 const submitBtn = document.getElementById("btn");
@@ -224,7 +241,7 @@ const submit = () => {
 
     var grid = document.getElementById("grid");
 
-    compareWeight(shuffleDinosObjects[0], humanObject)
+    compareDiet(shuffleDinosObjects[0], humanObject)
  
     for (let i = 0; i <= shuffleDinosObjects.length - 1; i++) {
 
