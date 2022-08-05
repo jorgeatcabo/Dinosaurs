@@ -5,6 +5,7 @@
   - [App Functionality](#app-functionality "App Functionality")
   - [Installation](#installation "Installation")
   - [Data](#data "Data")
+  - [Links to the App](#links-to-the-app "Links to App") 
 
  
 ## Description
@@ -38,3 +39,7 @@ One of the titles should be for a pigeon in which the tile should always display
 
 The `dino.json` file represents a fake database.
 
+## Links to the App
+
+App:
+  [Deployed App](https://main.dgluy7vnceemd.amplifyapp.com/ "AWS Amplify Deployment")
