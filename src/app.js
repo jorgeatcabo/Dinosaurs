@@ -235,17 +235,19 @@ const submit = () => {
         return;
     }
 
-    if (parseInt(document.getElementById("weight").value) <= 0) {
+    console.log(parseInt(document.getElementById("weight").value))
+
+    if (parseInt(document.getElementById("weight").value) <= 0 || (isNaN(parseInt(document.getElementById("weight").value)))) {
         alert("Please enter your weight.");
         return;
     }
 
-    if (parseInt((document.getElementById("feet").value)) <= 0) {
+    if (parseInt((document.getElementById("feet").value)) <= 0 || (isNaN(parseInt((document.getElementById("feet").value))))) {
         alert("Please enter the feet of your height.");
         return;
     }
 
-    if (parseInt((document.getElementById("inches").value)) <= 0) {
+    if (parseInt((document.getElementById("inches").value)) <= 0 || (isNaN(parseInt((document.getElementById("inches").value))))) {
         alert("Please enter the inches of your height.");
         return;
     }
