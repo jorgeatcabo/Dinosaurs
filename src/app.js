@@ -69,21 +69,6 @@ const Dino = () => {
 
 var dinosObjects = []
 
-// Create Dino Objects
-dinos.forEach((element) => {
-
-    let dino = Dino();
-    dino.setSpecies(element.species);
-    dino.setWeight(element.weight);
-    dino.setHeight(element.height);
-    dino.setDiet(element.diet);
-    dino.setWhere(element.where);
-    dino.setWhen(element.when);
-    dino.setFact(element.fact);
-    dino.setImage(element.image);
-    dinosObjects.push(dino)
-
-})
 
 //Method for shuffling array of objects
 const shuffle = (array) => {
@@ -97,6 +82,23 @@ const shuffle = (array) => {
     }
     return array;
 };
+
+// Create Dino Objects
+dinos.forEach((element) => {
+
+    let dino = Dino();
+    dino.setSpecies(element.species);
+    dino.setWeight(element.weight);
+    dino.setHeight(element.height);
+    dino.setDiet(element.diet);
+    dino.setWhere(element.where);
+    dino.setWhen(element.when);
+    //Obtaining a shuffle fact
+    dino.setFact(shuffle(element.fact)[0]);
+    dino.setImage(element.image);
+    dinosObjects.push(dino)
+
+})
 
 let shuffleDinosObjects = shuffle(dinosObjects)
 
@@ -222,7 +224,37 @@ const compareDiet = (dinoObject, humanObject) => {
 // On button click, prepare and display infographic
 const submitBtn = document.getElementById("btn");
 
+document.getElementById('name').validity.valid
+
 const submit = () => {
+
+    //Validation form
+    if ((document.getElementById("name").value).trim() === "")
+    {
+        alert("Please enter your name.");
+        return;
+    }
+
+    if (parseInt(document.getElementById("weight").value) <= 0) {
+        alert("Please enter your weight.");
+        return;
+    }
+
+    if (parseInt((document.getElementById("feet").value)) <= 0) {
+        alert("Please enter the feet of your height.");
+        return;
+    }
+
+    if (parseInt((document.getElementById("inches").value)) <= 0) {
+        alert("Please enter the inches of your height.");
+        return;
+    }
+
+    if ((document.getElementById("diet").value).trim() === "") {
+        alert("Please enter your diet.");
+        return;
+    }
+
 
 // Use IIFE to get human data from form
     (function getFormValues() {
@@ -241,8 +273,6 @@ const submit = () => {
 
     var grid = document.getElementById("grid");
 
-    compareDiet(shuffleDinosObjects[0], humanObject)
- 
     for (let i = 0; i <= shuffleDinosObjects.length - 1; i++) {
 
  // Generate Tiles for each Dino in Array

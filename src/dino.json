@@ -7,7 +7,12 @@
       "diet": "herbavor",
       "where": "North America",
       "when": "Late Cretaceous",
-      "fact": "First discovered in 1889 by Othniel Charles Marsh",
+      "fact": [
+        "First discovered in 1889 by Othniel Charles Marsh",
+        "Two Horns, Not Three",
+        "Skull Was One-Third of Its Body",
+        "Was Considered Food for Tyrannosaurus Rex"
+      ],
       "image": "triceratops.png"
     },
     {
@@ -17,7 +22,12 @@
       "diet": "carnivor",
       "where": "North America",
       "when": "Late Cretaceous",
-      "fact": "The largest known skull measures in at 5 feet long.",
+      "fact": [
+        "The largest known skull measures in at 5 feet long.",
+        "Not the Biggest Meat-Eating Dinosaur",
+        "Arms Not as Tiny as Once Thought",
+        "Very Bad Breath"
+      ],
       "image": "tyrannosaurus_rex.png"
     },
     {
@@ -27,7 +37,12 @@
       "diet": "herbavor",
       "where": "North America",
       "when": "Late Cretaceous",
-      "fact": "Anklyosaurus survived for approximately 135 million years.",
+      "fact": [        
+        "Anklyosaurus survived for approximately 135 million years.",
+        "Tail club",
+        "Bony plates",
+        "Armoured eyes"
+      ],
       "image": "anklyosaurus.png"
     },
     {
@@ -37,7 +52,12 @@
       "diet": "herbavor",
       "where": "North America",
       "when": "Late Jurasic",
-      "fact": "An asteroid was named 9954 Brachiosaurus in 1991.",
+      "fact": [
+        "An asteroid was named 9954 Brachiosaurus in 1991.",
+        "You pronounce their name 'brack-ee-ow-sor-us'",
+        "The meaning of their name is 'arm reptiles'",
+        "They were herbivores"
+      ],
       "image": "brachiosaurus.png"
     },
     {
@@ -47,7 +67,12 @@
       "diet": "herbavor",
       "where": "North America, Europe, Asia",
       "when": "Late Jurasic to Early Cretaceous",
-      "fact": "The Stegosaurus had between 17 and 22 seperate places and flat spines.",
+      "fact": [
+        "The Stegosaurus had between 17 and 22 seperate places and flat spines.",
+        "Stegosaurus Had a Brain the Size of a Walnut",
+        "Paleontologists Once Thought Stegosaurus Had a Brain in Its Butt",
+        "The Spiked Tail of Stegosaurus Is Called a 'Thagomizer'"
+      ],
       "image": "stegosaurus.png"
     },
     {
@@ -57,7 +82,12 @@
       "diet": "carnivor",
       "where": "North America",
       "when": "Late Cretaceous",
-      "fact": "Elasmosaurus was a marine reptile first discovered in Kansas.",
+      "fact": [
+        "Elasmosaurus was a marine reptile first discovered in Kansas.",
+        "The First Fossil of Elasmosaurus Was Discovered in Kansas",
+        "Elasmosaurus Was One of the Instigators of the Bone Wars",
+        "The Neck of Elasmosaurus Contained 71 Vertebrae"
+      ],
       "image": "elasmosaurus.png"
     },
     {
@@ -67,7 +97,12 @@
       "diet": "carnivor",
       "where": "North America",
       "when": "Late Cretaceous",
-      "fact": "Actually a flying reptile, the Pteranodon is not a dinosaur.",
+      "fact": [
+        "Actually a flying reptile, the Pteranodon is not a dinosaur.",
+        "Wingspan of Close to 20 Feet",
+        "Primarily a Glider",
+        "Males Were Much Bigger Than Females"
+      ],
       "image": "elasmosaurus.png"
     },
     {
@@ -77,7 +112,7 @@
       "diet": "herbavor",
       "where": "World Wide",
       "when": "Holocene",
-      "fact": "All birds are living dinosaurs.",
+      "fact": ["All birds are living dinosaurs."],
       "image": "pigeon.png"
     }
   ]
