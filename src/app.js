@@ -2,72 +2,86 @@ import Dinos from './dino.json' assert {type: 'json'};
 
 const dinos = [...Dinos.Dinos]
 
-// Create Dino Constructor
-const Dino = () => {
+class Dino {
 
-    let species = "";
-    let weight = 0;
-    let height = 0;
-    let diet = "";
-    let where = "";
-    let when = "";
-    let fact = "";
-    let image = "";
+    constructor() {
+        this.species = "";
+        this.weight = 0;
+        this.height = 0;
+        this.diet = "";
+        this.where = "";
+        this.when = "";
+        this.fact = "";
+        this.image = "";
+    }
 
-    return {
-        getSpecies: function () {
-            return species;
-        },
-        getWeight: function () {
-            return weight;
-        },
-        getHeight: function () {
-            return height;
-        },
-        getDiet: function () {
-            return diet;
-        },
-        getWhere: function () {
-            return where;
-        },
-        getWhen: function () {
-            return when;
-        },
-        getFact: function () {
-            return fact;
-        },
-        getImage: function () {
-            return image;
-        },
-        setSpecies: function (newValue) {
-            species = newValue;
-        },
-        setWeight: function (newValue) {
-            weight = newValue;
-        },
-        setHeight: function (newValue) {
-            height = newValue;
-        },
-        setDiet: function (newValue) {
-            diet = newValue;
-        },
-        setWhere: function (newValue) {
-            where = newValue;
-        },
-        setWhen: function (newValue) {
-            when = newValue;
-        },
-        setFact: function (newValue) {
-            fact = newValue;
-        },
-        setImage: function (newValue) {
-            image = newValue;
-        },
+    getSpecies=()=> {
+        return this.species;
+    }
+
+    getWeight=()=> {
+        return this.weight;
+    }
+
+    getHeight=()=> {
+        return this.height;
+    }
+
+    getDiet=()=> {
+        return this.diet;
+    }
+
+    getWhere=()=> {
+        return this.where;
+    }
+
+    getWhen=()=> {
+        return this.when;
+    }
+
+    getFact=()=> {
+        return this.fact;
+    }
+
+    getImage=()=> {
+        return this.image;
+    }
+
+    setSpecies=(newValue)=> {
+        this.species = newValue;
+    }
+
+    setWeight=(newValue)=> {
+        this.weight = newValue;
+    }
+
+    setHeight=(newValue)=> {
+        this.height = newValue;
+    }
+
+    setDiet=(newValue)=> {
+        this.diet = newValue;
+    }
+
+    setWhere=(newValue)=> {
+        this.where = newValue;
+    }
+
+    setWhen=(newValue)=> {
+        this.when = newValue;
+    }
+
+    setFact=(newValue)=> {
+        this.fact = newValue;
+    }
+
+    setImage=(newValue)=> {
+        this.image = newValue;
     }
 
 }
 
-var dinosObjects = []
+let dinosObjects = []
 
 
 //Method for shuffling array of objects
@@ -86,7 +100,7 @@ const shuffle = (array) => {
 // Create Dino Objects
 dinos.forEach((element) => {
 
-    let dino = Dino();
+    const dino = new Dino();
     dino.setSpecies(element.species);
     dino.setWeight(element.weight);
     dino.setHeight(element.height);
@@ -103,62 +117,73 @@ dinos.forEach((element) => {
 let shuffleDinosObjects = shuffle(dinosObjects)
 
 //Human constructor
-const Human = () => {
+class Human {
 
-    let species = "";
-    let name = "";
-    let height = {
-        feet: 0,
-        inches: 0
-    };
-    let weight = 0;
-    let diet = "";
-    let image = "";
+    constructor() {        
+        this.species = "";
+        this.name = "";
+        this.height = {
+            feet: 0,
+            inches: 0
+        };
+        this.weight = 0;
+        this.diet = "";
+        this.image = "";
+    }
 
-    return {
-        getSpecies: function () {
-            return species;
-        },
-        getName: function () {
-            return name;
-        },
-        getWeight: function () {
-            return weight;
-        },
-        getHeight: function () {
-            return height;
-        },
-        getDiet: function () {
-            return diet;
-        },
-        getImage: function () {
-            return image;
-        },
-        setSpecies: function (newValue) {
-            species = newValue;
-        },
-        setName: function (newValue) {
-            name = newValue;
-        },
-        setWeight: function (newValue) {
-            weight = newValue;
-        },
-        setHeight: function (newFeet,newInches) {
-            height.feet = newFeet;
-            height.inches = newInches;
-        },
-        setDiet: function (newValue) {
-            diet = newValue;
-        },
-        setImage: function (newValue) {
-            image = newValue;
-        },
+    getSpecies=()=> {
+        return this.species;
+    }
+
+    getName=()=> {
+        return this.name;
+    }
+
+    getWeight=()=> {
+        return this.weight;
+    }
+
+    getHeight=()=> {
+        return this.height;
+    }
+
+    getDiet=()=> {
+        return this.diet;
+    }
+
+    getImage=()=> {
+        return this.image;
+    }
+
+    setSpecies=(newValue)=> {
+        this.species = newValue;
+    }
+
+    setName=(newValue)=> {
+        this.name = newValue;
+    }
+
+    setWeight=(newValue)=> {
+        this.weight = newValue;
+    }
+
+    setHeight=(newFeet,newInches)=> {
+        this.height.feet = newFeet;
+        this.height.inches = newInches;
+    }
+
+    setDiet=(newValue)=> {
+        this.diet = newValue;
+    }
+
+    setImage=(newValue)=> {
+        this.image = newValue;
     }
 
 }
 
 // Create Human Object
-var humanObject = Human();
+const humanObject = new Human();
 
 // Create Dino Compare Method 1
 // NOTE: Weight in JSON file is in lbs, height in inches.
@@ -269,7 +294,7 @@ const submit = () => {
 //Add human object to the fifth place
     shuffleDinosObjects.splice(4, 0, humanObject)
 
-    var grid = document.getElementById("grid");
+    let grid = document.getElementById("grid");
 
     for (let i = 0; i <= shuffleDinosObjects.length - 1; i++) {
 
@@ -299,7 +324,7 @@ const submit = () => {
     }
 
  // Remove form from screen
-    var x = document.getElementById("dino-compare");
+    let x = document.getElementById("dino-compare");
     if (x.style.display === "none") {
         x.style.display = "block";
     } else {
