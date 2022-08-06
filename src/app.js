@@ -107,8 +107,7 @@ dinos.forEach((element) => {
     dino.setDiet(element.diet);
     dino.setWhere(element.where);
     dino.setWhen(element.when);
-    //Obtaining a shuffle fact
-    dino.setFact(shuffle(element.fact)[0]);
+    dino.setFact(element.fact);
     dino.setImage(element.image);
     dinosObjects.push(dino)
 
@@ -187,60 +186,58 @@ const humanObject = new Human();
 
 // Create Dino Compare Method 1
 // NOTE: Weight in JSON file is in lbs, height in inches.
-const compareHeight = (dinoObject, humanObject) => {
+function compareHeight (dinoObject, humanObject) {
 
     const humanHeight = humanObject.getHeight();
     const humanInches = (humanHeight.feet * 12) + (humanHeight.inches)
 
     if (dinoObject.getHeight() > humanInches) {
-        console.log(`Dino is taller than Human`)
+        return `Dino is taller than Human`;
     }
 
     if (dinoObject.getHeight() < humanInches) {
-        console.log(`Dino is less tall than Human`)
+        return `Dino is less tall than Human`;
     }
 
     if (dinoObject.getHeight() === humanInches) {
-        console.log(`Dino is as tall as Human`)
+        return `Dino is as tall as Human`;
     }
 
 }
 
-
 // Create Dino Compare Method 2
 // NOTE: Weight in JSON file is in lbs, height in inches.
-const compareWeight = (dinoObject, humanObject) => {
+function compareWeight(dinoObject, humanObject) {
 
     if (dinoObject.getWeight() > humanObject.getWeight()) {
-        console.log(`Dino is more heavy than Human`)
+        return `Dino is more heavy than Human`;
     }
 
     if (dinoObject.getWeight() < humanObject.getWeight()) {
-        console.log(`Dino is less heavy than Human`)
+        return `Dino is less heavy than Human`;
     }
 
     if (dinoObject.getWeight() === humanObject.getWeight()) {
-        console.log(`Dino is as heavy as Human`)
+        return `Dino is as heavy as Human`;
     }
 
 }
 
 // Create Dino Compare Method 3
 // NOTE: Weight in JSON file is in lbs, height in inches.
-const compareDiet = (dinoObject, humanObject) => {
+function compareDiet(dinoObject, humanObject) {
 
     if ((dinoObject.getDiet()==='herbavor') && (dinoObject.getDiet()).toUpperCase() === (humanObject.getDiet()).toUpperCase()) {
-        console.log(`Dino and Human likes only vegetables`)
+        return `Dino and Human likes only vegetables`;
     }
 
     if ((dinoObject.getDiet() === 'carnivor') && (dinoObject.getDiet()).toUpperCase() === (humanObject.getDiet()).toUpperCase()) {
-        console.log(`Dino and Human likes only meat`)
+        return `Dino and Human likes only meat`;
     }
 
     if ((dinoObject.getDiet() === 'omnivor') && (dinoObject.getDiet()).toUpperCase() === (humanObject.getDiet()).toUpperCase()) {
-        console.log(`Dino and Human likes hamburgers`)
+        return `Dino and Human likes hamburgers`;
     }
-
 
 }
 
@@ -290,6 +287,19 @@ const submit = () => {
         humanObject.setImage("human.png");
 
     })();
+
+    //Add compareHeight result to dino's fact
+    shuffleDinosObjects.forEach((element) => {
+
+        let compareResult = "";
+        if (element.getSpecies() != "Pigeon") {
+            compareResult = compareHeight(element, humanObject)
+            element.fact.push(compareResult)
+            //Setting a shuffle fact to dino
+            element.setFact(shuffle(element.fact)[0]);
+        }
+
+    })
 
 //Add human object to the fifth place
     shuffleDinosObjects.splice(4, 0, humanObject)
